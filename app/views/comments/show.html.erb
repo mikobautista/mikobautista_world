@@ -1,0 +1,31 @@
+<p>
+
+</p>
+
+<p>&nbsp;</p>
+
+<p>
+  <b>Name</b>: 
+  <%= @comment.name %>
+</p>
+
+<p>
+  <b>Email</b>: 
+  <%= @comment.email %>
+</p>
+
+<p>
+  <b>Content</b>: 
+  <%= @comment.content %>
+</p>
+
+<p>
+  <b>Active</b>: 
+  <%= @comment.active ? "Yes" : "No" %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', comments_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_comment_path(@comment), :class => 'btn' %>
+  <%= link_to 'Delete', comment_path(@comment), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

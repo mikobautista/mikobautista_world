@@ -1,0 +1,26 @@
+<h2>comments</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+				<td><%= comment.name %></td>
+        <td><%= comment.email %></td>
+        <td>
+          <%= link_to 'Edit', edit_comment_path(comment), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', comment_path(comment), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @comments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+
+
+<%= link_to 'New comment', new_comment_path, :class => 'btn btn-primary' %>
